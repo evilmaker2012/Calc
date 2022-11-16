@@ -7,6 +7,5 @@ public class Vvodilka {
 
     public Vvodilka() {
         phrase = sc.nextLine();
-        System.out.println(phrase);
     }
 }

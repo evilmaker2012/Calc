@@ -1,8 +1,8 @@
 public class Romanian {
 
-    StringBuilder leftSide, revLeftSide;
-    StringBuilder rightSide, revRightSide;
-    String sign, result;
+    StringBuilder leftSide;
+    StringBuilder rightSide;
+    String sign;
     int curr, next;
     long lSide = 0, rSide = 0, zSide;
 
@@ -17,8 +17,9 @@ public class Romanian {
         lSide = RomToArab(leftSide);
         rSide = RomToArab(rightSide);
         Poschitalka poschitalka = new Poschitalka(lSide, rSide, sign);
+        if(poschitalka.poluchilka()<0) throw new IllegalStateException("У римлян всё-всё было положительным!");
         System.out.println(poschitalka.poluchilka());
-        //  System.out.println("LeftSide= " + lSide + "  " + "RightSide= " + rSide);
+
 
     }
 

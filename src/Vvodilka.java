@@ -6,8 +6,7 @@ public class Vvodilka {
     Scanner sc = new Scanner(System.in);
 
     public Vvodilka() {
-      //  phrase = sc.nextLine();
-        phrase = "MXCLIXXII+CCII";
+        phrase = sc.nextLine();
         System.out.println(phrase);
     }
 }

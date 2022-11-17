@@ -47,6 +47,19 @@ public class Romanian {
             }
             i++;
         }
+
+        //Поиск повторений V, L, D
+
+        for(int ii = 0; ii <toArab.length; ii++) {
+            for (int jj = ii +1; jj <toArab.length; jj++) {
+                if(toArab[ii] == 5 && 5==toArab[jj] || toArab[ii] == 50 && 50==toArab[jj] ||toArab[ii] == 500 && 500==toArab[jj]) {
+                    throw new IllegalStateException("У римлян повторений V, L, D в одном мегачисле низя никак!");
+                }
+            }
+        }
+
+        // сам перевод в арабские
+
         for (int j = 0; j < len - 1; j++) {
 
             curr = toArab[j];
@@ -67,23 +80,10 @@ public class Romanian {
                     throw new IllegalStateException("У римлян больше одной одинокой мелкой буквоцифирки низя!");
                 zSide -= curr;
             }
-
-
-//            if (curr == next) {
-//                flagOfRepeat++;
-//                if (flagOfRepeat > 3) {
-//                    throw new IllegalStateException("У римлян больше трёх справа одинаковых буквоцифирок низя!");
-//                }
-//                zSide += curr;
-//            } else if (curr > next) {
-//                flagOfRepeat = 0;
-//                zSide += curr;
-//            } else if (curr < next && flagOfRepeat <= 1) {
-//                if (flagOfRepeat > 1)
-//                    throw new IllegalStateException("У римлян больше одной одинокой мелкой буквоцифирки низя!");
-//                zSide -= curr;
-//            }
         }
+
+        // вывод результата
+
         System.out.println("Итоговое значение " + sides + " = " + (zSide + toArab[len - 1]));
 
         return zSide + toArab[len - 1];

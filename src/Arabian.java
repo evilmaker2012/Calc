@@ -17,6 +17,7 @@ public class Arabian {
         rSide = Double.parseDouble(rightSide.toString());
         lSide = Double.parseDouble(leftSide.toString());
         Poschitalka poschitalka = new Poschitalka(lSide, rSide, sign);
-        System.out.println(poschitalka.poluchilka());
+        poschitalka.outgone();
     }
+
 }

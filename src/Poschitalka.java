@@ -7,6 +7,10 @@ public class Poschitalka {
         this.rSide = rSide;
         this.sign = sign;
     }
+
+    public void outgone() {
+        System.out.printf("%.0f",poluchilka());
+    }
        public double poluchilka() {
            switch (sign) {
                case "+"->

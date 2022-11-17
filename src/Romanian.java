@@ -17,15 +17,22 @@ public class Romanian {
         lSide = RomToArab(leftSide);
         rSide = RomToArab(rightSide);
         Poschitalka poschitalka = new Poschitalka(lSide, rSide, sign);
-        if(poschitalka.poluchilka()<0) throw new IllegalStateException("У римлян всё-всё было положительным!");
-        System.out.println(poschitalka.poluchilka());
+        if ((sign.equals("-") && rSide >= lSide) || poschitalka.poluchilka() < 0)
+            throw new IllegalStateException("У римлян всё-всё было положительным " +
+                    "и больше единицы! Умели же жить люди, а? :-)");
+        System.out.printf("%.0f", poschitalka.poluchilka());
 
+        ArabToRom(poschitalka.poluchilka());
+
+    }
+
+    private void ArabToRom(double poluchilka) {
 
     }
 
     public long RomToArab(StringBuilder sides) {
         zSide = 0;
-        int i = 0, len = sides.length();
+        int i = 0, len = sides.length(), flagOfRepeat = 1;
         int[] toArab = new int[len];
         // System.out.println(len);
         while (i < len) {
@@ -41,17 +48,43 @@ public class Romanian {
             i++;
         }
         for (int j = 0; j < len - 1; j++) {
+
             curr = toArab[j];
             next = toArab[j + 1];
-            if (curr < next) {
-                zSide -= curr;
-            } else {
+            if (curr > next) {
+                zSide += curr;
+                flagOfRepeat = 1;
+            }
+            if (curr == next) {
+                flagOfRepeat++;
+                if (flagOfRepeat > 3) {
+                    throw new IllegalStateException("У римлян больше трёх справа одинаковых буквоцифирок низя!");
+                }
                 zSide += curr;
             }
-            // System.out.println(lSide+ "  Итерация = "+j);
+            if (curr < next) {
+                if (flagOfRepeat > 1)
+                    throw new IllegalStateException("У римлян больше одной одинокой мелкой буквоцифирки низя!");
+                zSide -= curr;
+            }
 
+
+//            if (curr == next) {
+//                flagOfRepeat++;
+//                if (flagOfRepeat > 3) {
+//                    throw new IllegalStateException("У римлян больше трёх справа одинаковых буквоцифирок низя!");
+//                }
+//                zSide += curr;
+//            } else if (curr > next) {
+//                flagOfRepeat = 0;
+//                zSide += curr;
+//            } else if (curr < next && flagOfRepeat <= 1) {
+//                if (flagOfRepeat > 1)
+//                    throw new IllegalStateException("У римлян больше одной одинокой мелкой буквоцифирки низя!");
+//                zSide -= curr;
+//            }
         }
-        // System.out.println("Итоговое значение "+" = "+(lSide+toArab[len-1]));
+        System.out.println("Итоговое значение " + sides + " = " + (zSide + toArab[len - 1]));
 
         return zSide + toArab[len - 1];
     }

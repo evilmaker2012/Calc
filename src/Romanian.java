@@ -72,8 +72,6 @@ public class Romanian {
         }
 
         System.out.println("Итоговый Роман = " + toRomka);
-        System.out.println();
-
     }
 
     public long RomToArab(StringBuilder sides) {
@@ -142,7 +140,7 @@ public class Romanian {
 
         zSide = len == 1 ? toArab[0] : zSide + toArab[len - 1];
 
-        System.out.println("Итоговое значение " + zSide);
+//        System.out.println("Итоговое значение " + zSide);
 
         return zSide;
 

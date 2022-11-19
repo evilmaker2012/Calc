@@ -1,13 +1,13 @@
-public class Testilka {
+public class Sobiralka {
     String phrase;
 
 
-    public Testilka(String phrase) {
+    public Sobiralka(String phrase) {
         this.phrase = phrase;
 
     }
 
-    public void OutTestilka() {
+    public void SobiralkaBukovok() {
         phrase = phrase.replaceAll("[\s]", "");
         int dlina = phrase.length();
         String[] c = phrase.split("");

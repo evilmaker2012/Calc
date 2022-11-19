@@ -15,14 +15,20 @@ public class Romanian {
     public void Romka() {
 
         lSide = RomToArab(leftSide);
+//        if (lSide < 1 || lSide > 10) {
+//            throw new IllegalStateException("Цифирям быть должно лишь от I до X включительно! А у вас = "+leftSide);
+//        }
         rSide = RomToArab(rightSide);
+//        if (rSide < 1 || rSide > 10) {
+//            throw new IllegalStateException("Цифирям быть должно лишь от I до X включительно! А у вас = "+rightSide);
+//        }
         Poschitalka poschitalka = new Poschitalka(lSide, rSide, sign);
         double num = poschitalka.poluchilka();
-        if ((sign.equals("-") && rSide >= lSide) || num < 0)
+        if ((sign.equals("-") && rSide >= lSide) || num < 1)
             throw new IllegalStateException("У римлян всё-всё было положительным " +
                     "и больше единицы! Умели же жить люди, а? :-)");
         ArabToRom(num);
-        System.out.printf("%.0f", num);
+//        System.out.printf("%.0f", num);
     }
 
     protected void ArabToRom(double poluchilka) {

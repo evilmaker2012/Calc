@@ -1,6 +1,6 @@
 public class Poschitalka {
     String sign;
-    double lSide = 0, rSide = 0, result=0;
+    double lSide, rSide, result=0;
 
     public Poschitalka(double lSide, double rSide, String sign) {
         this.lSide = lSide;
@@ -8,9 +8,9 @@ public class Poschitalka {
         this.sign = sign;
     }
 
-    public void outgone() {
-        System.out.printf("%.0f",poluchilka());
-    }
+//    public void outgone() {
+//        System.out.printf("%.0f",poluchilka());
+//    }
        public double poluchilka() {
            switch (sign) {
                case "+"->

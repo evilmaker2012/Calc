@@ -15,13 +15,13 @@ public class Arabian {
     public void cifir() {
 
         rSide = Double.parseDouble(rightSide.toString());
-//        if (rSide < 1 || rSide > 10) {
-//            throw new IllegalStateException("Цифирям быть должно лишь от 1 до 10 включительно! А у вас = "+(int)rSide);
-//        }
+        if (rSide < 1 || rSide > 10) {
+            throw new IllegalStateException("Цифирям быть должно лишь от 1 до 10 включительно! А у вас = "+(int)rSide);
+        }
         lSide = Double.parseDouble(leftSide.toString());
-//        if (lSide < 1 || lSide > 10) {
-//            throw new IllegalStateException("Цифирям быть должно лишь от 1 до 10 включительно! А у вас = "+(int)lSide);
-//        }
+        if (lSide < 1 || lSide > 10) {
+            throw new IllegalStateException("Цифирям быть должно лишь от 1 до 10 включительно! А у вас = "+(int)lSide);
+        }
         Poschitalka poschitalka = new Poschitalka(lSide, rSide, sign);
         System.out.printf("Итоговый Арабчонок = "+"%.0f",poschitalka.poluchilka());
     }

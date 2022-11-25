@@ -47,6 +47,7 @@ public class Romanian {
 
             if (rep >= 0) {
                 excl = rep * razryad;
+
                 switch (excl) {
                     case 900 -> toRomka.append("CM");
                     case 500 -> toRomka.append("D");
@@ -55,6 +56,9 @@ public class Romanian {
                     case 50 -> toRomka.append("L");
                     case 40 -> toRomka.append("XL");
                     case 9 -> toRomka.append("IX");
+                    case 8 -> toRomka.append("VIII");
+                    case 7 -> toRomka.append("VII");
+                    case 6 -> toRomka.append("VI");
                     case 5 -> toRomka.append("V");
                     case 4 -> toRomka.append("IV");
 //                    default -> throw new IllegalStateException("R");

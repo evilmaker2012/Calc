@@ -16,11 +16,11 @@ public class Romanian {
 
         lSide = RomToArab(leftSide);
         if (lSide < 1 || lSide > 10) {
-            throw new IllegalStateException("Цифирям быть должно лишь от I до X включительно! А у вас = "+leftSide);
+            throw new IllegalStateException("Цифирям быть должно лишь от I до X включительно! А у вас = " + leftSide);
         }
         rSide = RomToArab(rightSide);
         if (rSide < 1 || rSide > 10) {
-            throw new IllegalStateException("Цифирям быть должно лишь от I до X включительно! А у вас = "+rightSide);
+            throw new IllegalStateException("Цифирям быть должно лишь от I до X включительно! А у вас = " + rightSide);
         }
         Poschitalka poschitalka = new Poschitalka(lSide, rSide, sign);
         double num = poschitalka.poluchilka();
@@ -28,22 +28,18 @@ public class Romanian {
             throw new IllegalStateException("У римлян всё-всё было положительным " +
                     "и больше единицы! Умели же жить люди, а? :-)");
         ArabToRom(num);
-//        System.out.printf("%.0f", num);
     }
 
     protected void ArabToRom(double poluchilka) {
-        // 1000 100 10 1
         StringBuilder toRomka = new StringBuilder();
         int stepen = (int) Math.floor(Math.log10(poluchilka)), razryad, rep, excl;
 
 
         for (int i = stepen; i >= 0; i--) {
             razryad = (int) Math.pow(10, i);
-            rep = (int) Math.floor(poluchilka / razryad);
-            if (i < stepen) {
-                rep = (int) Math.floor(poluchilka / razryad) - (int) Math.pow(10, stepen - i);
 
-            }
+            rep = (int) Math.floor(poluchilka / razryad);
+            poluchilka = i ==0 ? poluchilka = poluchilka % 10 : poluchilka- rep * razryad;
 
             if (rep >= 0) {
                 excl = rep * razryad;

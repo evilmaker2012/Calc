@@ -63,5 +63,6 @@ public class TransToRom {
         }
 
         System.out.println("Итоговый Роман = " + toRomka);
+        System.out.println("Вот перевод ответа в арабские: "+new TransToArab().RomToArab(toRomka));
     }
 }

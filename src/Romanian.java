@@ -29,6 +29,7 @@ public class Romanian {
         if ((sign.equals("-") && rSide >= lSide) || num < 1)
             throw new IllegalStateException("У римлян всё-всё было положительным " +
                     "и больше единицы! Умели же жить люди, а? :-)");
+        System.out.println("Для справки: " + lSide + sign + rSide + "=" + (int) num);
         trom.ArabToRom(num);
     }
 
